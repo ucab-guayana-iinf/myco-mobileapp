@@ -13,7 +13,6 @@ import {
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import { Constants } from 'expo';
 
-
 export default class LoginClass extends React.Component {
   constructor(props){
     super(props);
@@ -47,7 +46,7 @@ export default class LoginClass extends React.Component {
       <View style={styles.container}>
           {/* Container Logo*/}
           <View style = {styles.containerLogo}>
-            <Image source = {require('../Imagenes/logo.png')} style = {{width: 100, height: 100}} />
+            <Image source = {require('../assets/images/logo.png')} style = {{width: 100, height: 100}} />
           </View>
 
           {/* Container Entrada de Datos*/}
@@ -86,7 +85,7 @@ export default class LoginClass extends React.Component {
           {/* Boton de ingreso*/}
           <View style = {{marginTop: '5.5%', marginLeft: 280}}>
             <TouchableOpacity onPress = {this.verificarDatos}>
-                <Image source = {require('../Imagenes/btnlogin.png')} style = {{width: 70, height: 70}} />
+                <Image source = {require('../assets/images/btnlogin.png')} style = {{width: 70, height: 70}} />
             </TouchableOpacity>
           </View>
       </View>

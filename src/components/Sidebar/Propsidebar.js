@@ -32,7 +32,7 @@ const customNav = (props) => (
   <SafeAreaView style = {{flex: 1}}>
     
     <View style = {styles.container}>
-      <Image source = {require('../../Imagenes/logo.png')} style = {{width:110, height: 110}}/>
+      <Image source = {require('../../assets/images/logo.png')} style = {{width:110, height: 110}}/>
         <View style = {{alignItems: 'center'}}>
           <Text style = {{color: 'white', fontSize: 20, fontWeight: 'bold'}}>Nombre de Usuario</Text>
           <Text style = {{color: 'white', fontSize: 20, fontWeight: 'bold'}}>Propietario</Text>
