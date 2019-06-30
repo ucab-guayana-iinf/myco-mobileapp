@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  ImageBackground, 
 } from 'react-native';
 import {DrawerActions} from 'react-navigation';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';

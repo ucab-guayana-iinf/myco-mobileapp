@@ -5,7 +5,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
-  ScrollView
+  ScrollView,
+  ImageBackground,
 } from 'react-native';
 import {DrawerActions} from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';

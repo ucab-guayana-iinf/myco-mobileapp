@@ -8,7 +8,8 @@ import {
   ImageBackground, 
   TextInput, 
   KeyboardAvoidingView,
-  Alert
+  Alert,
+  ScrollView, 
   } from 'react-native';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import { Constants } from 'expo';
