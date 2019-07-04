@@ -22,7 +22,9 @@ import PerfilScreen from '../../screens/perfil';
 import DeudasScreen from '../../screens/Deudas';
 import FacturasScreen from '../../screens/Factura';
 import PagosScreen from '../../screens/Pagos';
-import PypScreen from '../../screens/PropiedadesyProp'
+import PypScreen from '../../screens/PropiedadesyProp';
+import DetallesPropietario from '../../screens/DetallesPropietario';
+import DetallesPropiedad from '../../screens/DetallesPropiedad';
 
 export default class Admin extends React.Component { 
   render(){  
@@ -58,11 +60,13 @@ const AdminContainerDrawer = createDrawerNavigator(
     Cuentas_por_Cobrar: Ctsxcobrar,
     Deudas: DeudasScreen,
     Facturas: FacturasScreen,
-    Pagos: PagosScreen,   
+    Pagos: PagosScreen,
+    DPropiedad: DetallesPropiedad,
+    DPropietario: DetallesPropietario,
   },
   {
     contentComponent: customNav
-  }
+  },
 );
 const AdminSidebar = createAppContainer(AdminContainerDrawer);
 

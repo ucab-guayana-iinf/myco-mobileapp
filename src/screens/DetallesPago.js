@@ -6,11 +6,12 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  ImageBackground, 
 } from 'react-native';
 import {DrawerActions} from 'react-navigation';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import Modal from '../components/Modal'
 import { Card } from 'react-native-elements';
+import Modal from '../components/Modal'
 import Estado from '../components/ModalEstado'
 
 var color = 'red';

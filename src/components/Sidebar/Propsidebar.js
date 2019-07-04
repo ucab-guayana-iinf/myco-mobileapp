@@ -19,7 +19,6 @@ import PerfilScreen from '../../screens/perfil';
 import DeudasScreen from '../../screens/Deudas';
 import FacturasScreen from '../../screens/Factura';
 
-
 export default class Propietario extends React.Component { 
   render(){    
     return(
