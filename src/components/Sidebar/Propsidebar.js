@@ -3,11 +3,10 @@ import {
   Text,
   View, 
   StyleSheet,
+  Image,
   ScrollView,
-  SafeAreaView,
-  Image
+  SafeAreaView
 } from 'react-native';
-
 import {
   createDrawerNavigator,
   createAppContainer,
@@ -15,33 +14,27 @@ import {
 } from 'react-navigation';
 import { Constants } from 'expo';
 {/* Importacion de Componentes*/}
-import LoginScreen from '../../screens/Login';
-import Ctsxcobrar from '../../screens/Ctsxcobrar';
 import HomeScreen from '../../screens/home';
 import PerfilScreen from '../../screens/perfil';
 import DeudasScreen from '../../screens/Deudas';
 import FacturasScreen from '../../screens/Factura';
-import PagosScreen from '../../screens/Pagos';
-import PypScreen from '../../screens/PropiedadesyProp'
 
-
-export default class Admin extends React.Component { 
-  render(){  
+export default class Propietario extends React.Component { 
+  render(){    
     return(
-      <AdminSidebar/>
+      <PropSidebar/>
     );
   }
 }
-
 
 const customNav = (props) => (
   <SafeAreaView style = {{flex: 1}}>
     
     <View style = {styles.container}>
-      <Image source = {require('../../Imagenes/logo.png')} style = {{width:110, height: 110}}/>
+      <Image source = {require('../../assets/images/logo.png')} style = {{width:110, height: 110}}/>
         <View style = {{alignItems: 'center'}}>
           <Text style = {{color: 'white', fontSize: 20, fontWeight: 'bold'}}>Nombre de Usuario</Text>
-          <Text style = {{color: 'white', fontSize: 20, fontWeight: 'bold'}}>Admin</Text>
+          <Text style = {{color: 'white', fontSize: 20, fontWeight: 'bold'}}>Propietario</Text>
           <Text style = {{color: '#2F6FD6', fontSize: 15, fontWeight: 'bold'}}>usuario@hotmail.com</Text>
         </View>
     </View>
@@ -52,22 +45,19 @@ const customNav = (props) => (
   </SafeAreaView>
 )
 
-
-const AdminContainerDrawer = createDrawerNavigator(
+const PropContainerDrawer = createDrawerNavigator(
   {
-    Perfil:PerfilScreen,
+    Perfil: PerfilScreen,
     Home: HomeScreen,
-    Pyp: PypScreen,
-    Cuentas_por_Cobrar: Ctsxcobrar,
     Deudas: DeudasScreen,
-    Facturas: FacturasScreen,
-    Pagos: PagosScreen,   
+    Facturas: FacturasScreen,  
   },
   {
     contentComponent: customNav
   }
 );
-const AdminSidebar = createAppContainer(AdminContainerDrawer);
+const PropSidebar = createAppContainer(PropContainerDrawer);
+
 
 const styles = StyleSheet.create({
   container: {
@@ -78,4 +68,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
