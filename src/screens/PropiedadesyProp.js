@@ -46,7 +46,7 @@ export default class PyP extends React.Component {
         </TouchableOpacity>
         <Text
           style={{
-            fontSize: 18,
+            fontSize: 20,
             color: 'white',
             fontWeight: 'bold',
             marginLeft: 22,

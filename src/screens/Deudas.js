@@ -13,6 +13,8 @@ import { Card } from 'react-native-elements';
 import Modal from '../components/Modal';
 import ModalEst from '../components/ModalEstadoDeudas';
 
+var admin = 'true';
+
 export default class Deudas extends React.Component {
   /* Configuraciones del Sidebar*/
   static navigationOptions = {
@@ -20,7 +22,7 @@ export default class Deudas extends React.Component {
     drawerIcon: () => <FontAwesome name="money" size={20} color="#1bb98f" />,
   };
 
-  Header = (
+  HeaderAdmin = (
     <View style={{ backgroundColor: '#1bb98f' }}>
       <View style={{ flexDirection: 'row', marginTop: 40, marginBottom: 10 }}>
         <TouchableOpacity
@@ -46,6 +48,33 @@ export default class Deudas extends React.Component {
         <View style={{ marginLeft: 130 }}>
           <Modal />
         </View>
+      </View>
+    </View>
+  );
+
+  Header = (
+    <View style={{ backgroundColor: '#1bb98f' }}>
+      <View style={{ flexDirection: 'row', marginTop: 40, marginBottom: 10 }}>
+        <TouchableOpacity
+          onPress={() =>
+            this.props.navigation.dispatch(DrawerActions.openDrawer())
+          }>
+          <FontAwesome
+            name="bars"
+            size={25}
+            color="white"
+            style={{ marginLeft: 20 }}
+          />
+        </TouchableOpacity>
+        <Text
+          style={{
+            fontSize: 20,
+            color: 'white',
+            fontWeight: 'bold',
+            marginLeft: 90.6,
+          }}>
+          Deudas
+        </Text>
       </View>
     </View>
   );
@@ -92,19 +121,32 @@ export default class Deudas extends React.Component {
     </View>
   );
 
-  render() {
-    return (
-      <View>
-        {this.Header}
-        <ScrollView>
-          <View style={{ marginBottom: 100 }}>
-            {this.renderCard('MH-30', 'Agua', 'Bs. 13.000')}
-            {this.renderCard('MH-31', 'Agua', 'Bs. 13.000')}
-            {this.renderCard('MH-31', 'Luz', 'Bs. 13.000')}
-          </View>
-        </ScrollView>
+  renderContent = (
+    <ScrollView>
+      <View style={{ marginBottom: 100 }}>
+        {this.renderCard('MH-30', 'Agua', 'Bs. 13.000')}
+        {this.renderCard('MH-31', 'Agua', 'Bs. 13.000')}
+        {this.renderCard('MH-31', 'Luz', 'Bs. 13.000')}
       </View>
-    );
+    </ScrollView>
+  );
+
+  render() {
+    if (admin == 'true'){
+      return (
+        <View>
+          {this.HeaderAdmin}
+          {this.renderContent}
+        </View>
+      );
+    } else {
+      return (
+        <View>
+          {this.Header}
+          {this.renderContent}
+        </View>
+      ); 
+    }
   }
 }
 

@@ -39,7 +39,7 @@ export default class Pagos extends React.Component {
   );
 
   renderText = (propiedad, fecha, servicio) => (
-    <View style = {{flexDirection: 'column', marginLeft: 20}}>
+    <View style = {{flexDirection: 'column', marginLeft: 20, width: 190}}>
       <Text style={styles.paragraph1}>
         {propiedad}
       </Text>
@@ -55,11 +55,15 @@ export default class Pagos extends React.Component {
   renderCard = (propiedad, fecha, servicio) => (
     <View style={styles.container}>
       <Card>
+      <View style={{width: 300}}>
         <View style={{ flexDirection: 'row' }}>
           <FontAwesome name='dollar' size={55} color='#1bb98f' style={{marginTop: 14}}/>
           {this.renderText(propiedad, fecha, servicio)}
-           <Image source = {require('../assets/images/btnlogin.png')} style = {{width: 60, height: 60, marginLeft: 100, marginTop: 12}} />
-        </View>       
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('DPago')}>
+            <Image source = {require('../assets/images/btnlogin.png')} style = {{width: 60, height: 60, marginTop: 12}} />
+          </TouchableOpacity>
+        </View>  
+      </View>         
       </Card>
     </View>
   );
@@ -103,7 +107,7 @@ const styles = StyleSheet.create({
     marginBottom:5
   },
   paragraph3: {
-    fontSize: 15,
+    fontSize: 20,
     color: 'black',
   },
 });

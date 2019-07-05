@@ -5,7 +5,7 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { Card } from 'react-native-elements';
 
 var estado = 'orange';
-var valor = '';
+var valor = 'Pendiente';
 
 export default class CustomModal extends Component {
   state = {
@@ -32,9 +32,22 @@ export default class CustomModal extends Component {
     </TouchableOpacity>
   );
 
+  renderEstado = (
+    <View style={{flexDirection: 'row', margin: 20}}>
+      <Text style={{ color: 'black', fontSize: 15,}}>
+          Estado Actual:   
+      </Text>
+      <Ionicons name="md-radio-button-on" size={25} color={estado} style={{marginLeft: 20}}/>
+      <Text style={{ color: 'black', fontSize: 15, marginLeft: 20}}>
+          {valor}      
+      </Text>
+      
+    </View>
+  );
+
   renderModalContent = (
     <View style={styles.modalContent}>
-
+      {this.renderEstado}
       {this.renderButton(
         'Rechazado',
         () => this.setState({ visibleModal: null}),
@@ -92,6 +105,7 @@ const styles = StyleSheet.create({
   },
   button: {
     flexDirection: 'row',
+    width: 250,
     backgroundColor: 'white',
     margin: 16,
     justifyContent: 'center',

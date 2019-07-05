@@ -10,7 +10,7 @@ import {
 import LoginScreen from '../screens/Login';
 import AdminSidebarScreen from './Sidebar/AdminSidebar';
 import PropSidebarScreen from './Sidebar/Propsidebar';
-import Logi from '../screens/Deudas';
+import Login from '../screens/Deudas';
 
 /* Estructuracion de nuestras pantallas*/
 const MainNavigator = createStackNavigator(

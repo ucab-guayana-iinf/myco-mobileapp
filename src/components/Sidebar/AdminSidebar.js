@@ -25,6 +25,8 @@ import PagosScreen from '../../screens/Pagos';
 import PypScreen from '../../screens/PropiedadesyProp';
 import DetallesPropietario from '../../screens/DetallesPropietario';
 import DetallesPropiedad from '../../screens/DetallesPropiedad';
+import DetallesPago from '../../screens/DetallesPago';
+import DetallesFactura from '../../screens/DetallesFactura';
 
 export default class Admin extends React.Component { 
   render(){  
@@ -63,6 +65,8 @@ const AdminContainerDrawer = createDrawerNavigator(
     Pagos: PagosScreen,
     DPropiedad: DetallesPropiedad,
     DPropietario: DetallesPropietario,
+    DPago: DetallesPago,
+    DFactura: DetallesFactura
   },
   {
     contentComponent: customNav
