@@ -21,9 +21,6 @@ export default class Formulario extends React.Component {
         <Text style = {{ fontSize: 20, color:'white', fontWeight: 'bold', marginLeft: 50}}>
           Formulario de Pagos
         </Text>
-        <View style={{ marginLeft: 52.5 }}>
-          <Modal/>
-        </View> 
       </View>
     </View> 
   );

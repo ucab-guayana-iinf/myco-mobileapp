@@ -12,6 +12,8 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Card } from 'react-native-elements';
 import Modal from '../components/Modal'
 
+var admin = 'true';
+
 export default class Perfil extends React.Component {
   /* Configuraciones del Sidebar*/
   static navigationOptions = {
@@ -21,7 +23,7 @@ export default class Perfil extends React.Component {
     ),
   }
 
-  Header = (
+  HeaderAdmin = (
     <View style={{ backgroundColor: '#1bb98f', }}>
       <View style = {{flexDirection: 'row', marginTop: 40, marginBottom: 10 }}>
         <TouchableOpacity onPress = { () => this.props.navigation.dispatch(DrawerActions.openDrawer())}>
@@ -33,6 +35,19 @@ export default class Perfil extends React.Component {
         <View style={{ marginLeft: 130 }}>
           <Modal/>
         </View> 
+      </View>
+    </View> 
+  );
+
+  Header = (
+    <View style={{ backgroundColor: '#1bb98f', }}>
+      <View style = {{flexDirection: 'row', marginTop: 40, marginBottom: 10 }}>
+        <TouchableOpacity onPress = { () => this.props.navigation.dispatch(DrawerActions.openDrawer())}>
+          <FontAwesome name="bars" size={25} color="white" style={{ marginLeft: 20 }}/>
+        </TouchableOpacity>
+        <Text style = {{ fontSize: 20, color:'white', fontWeight: 'bold', marginLeft: 110}}>
+          Perfil
+        </Text>
       </View>
     </View> 
   );
@@ -78,12 +93,9 @@ export default class Perfil extends React.Component {
       </Card>
     </View>
   );
-  
-  render() {
-    return (
-     <View>
-        {this.Header}
-        <ScrollView>
+
+  renderContent = (
+    <ScrollView>
           <View style={{ marginBottom: 100 }}>  
             {this.renderCard('Nombre', 'user-circle', '#1bb98f', 'Miguel')}
             {this.renderCard('Apellido', 'id-card', '#1bb98f', 'Valdez')}
@@ -101,8 +113,24 @@ export default class Perfil extends React.Component {
             {this.renderPropiedades('Duplex','Av.Atlantico')}
           </View>
         </ScrollView>
-     </View>
-    );
+  );
+  
+  render() {
+    if (admin == 'true'){
+      return (
+        <View>
+          {this.HeaderAdmin}
+          {this.renderContent}
+        </View>
+      );
+    } else {
+      return (
+        <View>
+          {this.Header}
+          {this.renderContent}
+        </View>
+      ); 
+    }
   }
 }
 

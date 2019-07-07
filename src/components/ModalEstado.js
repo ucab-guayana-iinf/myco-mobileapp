@@ -16,16 +16,22 @@ export default class CustomModal extends Component {
     <TouchableOpacity onPress={onPress}>
       <View style={styles.containerCard}>
       <Card>
+        <View style={{width: 300}}>
         <View style={{ flexDirection: 'row' }}>
           <Ionicons name='md-radio-button-on' size={23} color={estado} />
-          <Text style={styles.paragraph1}>
-             Estado
-          </Text>
-          <Text style={styles.paragraph2}>
-             {valor}
-          </Text>
+          <View style = {{width: 130}}>
+            <Text style={styles.paragraph1}>
+              Estado
+            </Text>
+          </View>
+          <View style = {{width: 130}}>
+            <Text style={styles.paragraph2}>
+              {valor}
+            </Text>
+          </View>
         <Image source = {require('../assets/images/btnlogin.png')} style = {{width: 25, height: 25}} />
-        </View>
+      </View>
+      </View> 
       </Card>
       </View>
     </TouchableOpacity>
@@ -88,6 +94,7 @@ const styles = StyleSheet.create({
   },
   button: {
     flexDirection: 'row',
+    width: 250,
     backgroundColor: 'white',
     margin: 16,
     justifyContent: 'center',
@@ -102,15 +109,15 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(0, 0, 0, 0.1)',
   },
   paragraph1: {
-    marginLeft: 20,
+    marginLeft: 30,
     fontSize: 15,
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#2F6FD6',
   },
   paragraph2: {
-    marginLeft: 20,
-    marginRight: 20,
+    marginLeft: 30,
+    marginRight: 10,
     fontSize: 15,
     textAlign: 'center',
     color: 'gray',

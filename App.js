@@ -9,7 +9,7 @@ import NavigatorMain from './src/components/Navigator';
 export default class App extends React.Component {
   render(){
     return(
-      <Sidebar />
+      <NavigatorMain />
   );}
 
 }

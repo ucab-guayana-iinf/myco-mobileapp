@@ -18,10 +18,14 @@ var color = 'red';
 var valor = 'Rechazado';
 
 export default class DetallesPago extends React.Component {
+static navigationOptions={
+    drawerLabel:()=> null,
+  };
+
   Header = (
     <View style={{ backgroundColor: '#1bb98f', }}>
       <View style = {{flexDirection: 'row', marginTop: 40, marginBottom: 10 }}>
-        <TouchableOpacity onPress = { () => this.props.navigation.dispatch(DrawerActions.openDrawer())}>
+        <TouchableOpacity onPress = { () => this.props.navigation.navigate('Pagos')}>
           <FontAwesome name="arrow-left" size={25} color="white" style={{ marginLeft: 20 }}/>
         </TouchableOpacity>
         <Text style = {{ fontSize: 20, color:'white', fontWeight: 'bold', marginLeft: 60}}>
@@ -37,14 +41,20 @@ export default class DetallesPago extends React.Component {
   renderCard = (text, iconname, color, valor) => (
     <View style={styles.container}>
       <Card>
-        <View style={{ flexDirection: 'row' }}>
-          <Ionicons name={iconname} size={23} color={color} />
-          <Text style={styles.paragraph1}>
-             {text}
-          </Text>
-          <Text style={styles.paragraph2}>
-             {valor}
-          </Text>
+        <View style={{width: 300}}>
+          <View style={{flexDirection: 'row'}}>
+            <Ionicons name={iconname} size={23} color={color} />
+            <View style = {{width: 130}}>
+              <Text style={styles.paragraph1}>
+                {text}
+              </Text>
+            </View>
+            <View style = {{width: 130}}>
+              <Text style={styles.paragraph2}>
+                {text}
+              </Text>
+            </View>
+          </View>  
         </View>       
       </Card>
     </View>
@@ -80,14 +90,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   paragraph1: {
-    marginLeft: 20,
+    marginLeft: 30,
     fontSize: 15,
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#2F6FD6',
   },
   paragraph2: {
-    marginLeft: 20,
+    marginLeft: 30,
     marginRight: 20,
     fontSize: 15,
     textAlign: 'center',
