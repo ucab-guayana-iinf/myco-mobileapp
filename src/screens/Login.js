@@ -118,14 +118,13 @@ export default class LoginClass extends React.Component {
         <View style={{ marginTop: '5.5%', marginLeft: 280 }}>
           <TouchableOpacity
             onPress={() => {
-              const user = 'admin';
-              
-              if(user === 'propietario'){
+              const user = 'Admin';
+
+              if (user === 'propietario') {
                 this.props.navigation.navigate('PropSid');
-              }else{
+              } else {
                 this.props.navigation.navigate('AdminSid');
               }
- 
             }}>
             <Image
               source={require('../assets/images/btnlogin.png')}

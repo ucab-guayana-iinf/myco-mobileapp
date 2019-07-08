@@ -12,27 +12,26 @@ export default class CustomModal extends Component {
     visibleModal: null,
   };
 
-  renderModalButton = (onPress) => (
+  renderModalButton = onPress => (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.containerCard}>
-      <Card>
-        <View style={{width: 300}}>
-        <View style={{ flexDirection: 'row' }}>
-          <Ionicons name='md-radio-button-on' size={23} color={estado} />
-          <View style = {{width: 130}}>
-            <Text style={styles.paragraph1}>
-              Estado
-            </Text>
+        <Card>
+          <View style={{ width: 300 }}>
+            <View style={{ flexDirection: 'row' }}>
+              <Ionicons name="md-radio-button-on" size={23} color={estado} />
+              <View style={{ width: 130 }}>
+                <Text style={styles.paragraph1}>Estado</Text>
+              </View>
+              <View style={{ width: 130 }}>
+                <Text style={styles.paragraph2}>{valor}</Text>
+              </View>
+              <Image
+                source={require('../assets/images/btnlogin.png')}
+                style={{ width: 25, height: 25 }}
+              />
+            </View>
           </View>
-          <View style = {{width: 130}}>
-            <Text style={styles.paragraph2}>
-              {valor}
-            </Text>
-          </View>
-        <Image source = {require('../assets/images/btnlogin.png')} style = {{width: 25, height: 25}} />
-      </View>
-      </View> 
-      </Card>
+        </Card>
       </View>
     </TouchableOpacity>
   );
@@ -40,22 +39,36 @@ export default class CustomModal extends Component {
   renderButton = (text, onPress, color) => (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.button}>
-        <Ionicons name='md-radio-button-on' size={25} color={color} />
-        <Text style={{color: 'black', fontSize: 15, marginLeft: 50}}>{text}</Text>
+        <Ionicons name="md-radio-button-on" size={25} color={color} />
+        <Text style={{ color: 'black', fontSize: 15, marginLeft: 50 }}>
+          {text}
+        </Text>
       </View>
     </TouchableOpacity>
   );
 
   renderModalContent = (
     <View style={styles.modalContent}>
-      {this.renderButton('Rechazado', () => this.setState({ visibleModal: null }), 'red')}
-      {this.renderButton(' Pendiente', () => this.setState({ visibleModal: null }), 'orange')}
-      {this.renderButton('Cancelado', () => this.setState({ visibleModal: null }), 'green')}
+      {this.renderButton(
+        'Rechazado',
+        () => this.setState({ visibleModal: null }),
+        'red'
+      )}
+      {this.renderButton(
+        ' Pendiente',
+        () => this.setState({ visibleModal: null }),
+        'orange'
+      )}
+      {this.renderButton(
+        'Cancelado',
+        () => this.setState({ visibleModal: null }),
+        'green'
+      )}
     </View>
   );
 
   render() {
-    switch (estado){
+    switch (estado) {
       case 'red':
         valor = 'Rechazado';
         break;
@@ -65,10 +78,10 @@ export default class CustomModal extends Component {
       case 'green':
         valor = 'Cancelado';
         break;
-    }  
+    }
     return (
       <View>
-          {this.renderModalButton(() => this.setState({ visibleModal: 1 }))}
+        {this.renderModalButton(() => this.setState({ visibleModal: 1 }))}
         <View style={styles.container}>
           <Modal isVisible={this.state.visibleModal === 1}>
             {this.renderModalContent}
@@ -100,7 +113,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,
-    borderColor: 'rgba(0, 0, 0, 0.1)',
+    borderColor: 'dimgrey',
+    borderBottomWidth: 1,
   },
   modalContent: {
     backgroundColor: 'white',

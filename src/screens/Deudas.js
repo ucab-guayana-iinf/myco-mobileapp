@@ -132,7 +132,7 @@ export default class Deudas extends React.Component {
   );
 
   render() {
-    if (admin == 'true'){
+    if (admin == 'true') {
       return (
         <View>
           {this.HeaderAdmin}
@@ -145,7 +145,7 @@ export default class Deudas extends React.Component {
           {this.Header}
           {this.renderContent}
         </View>
-      ); 
+      );
     }
   }
 }
