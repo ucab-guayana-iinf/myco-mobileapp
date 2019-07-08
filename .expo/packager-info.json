@@ -1,9 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 27328,
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
   "expoServerNgrokUrl": "https://v5-ve7.anonymous.myco-mobileapp.exp.direct",
   "packagerNgrokUrl": "https://packager.v5-ve7.anonymous.myco-mobileapp.exp.direct",
-  "ngrokPid": 27378
+  "ngrokPid": 29386,
+  "webpackServerPort": null
 }
