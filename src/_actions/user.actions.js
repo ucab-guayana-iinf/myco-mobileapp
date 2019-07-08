@@ -17,7 +17,7 @@ function login(username, password) {
             .then(
                 user => {
                     dispatch(success(user));
-                    NavigationService.navigate('PropSid');
+                    NavigationService.navigate('AdminSid');
                 },
                 error => {
                     dispatch(failure(error));
