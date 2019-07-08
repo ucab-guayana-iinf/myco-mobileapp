@@ -1,20 +1,22 @@
 import * as React from 'react';
-import { 
+import {
   Text,
-  View, 
+  View,
   StyleSheet,
   ScrollView,
   SafeAreaView,
-  Image
+  Image,
 } from 'react-native';
 
 import {
   createDrawerNavigator,
   createAppContainer,
-  DrawerItems
+  DrawerItems,
 } from 'react-navigation';
 import { Constants } from 'expo';
-{/* Importacion de Componentes*/}
+{
+  /* Importacion de Componentes*/
+}
 import LoginScreen from '../../screens/Login';
 import Ctsxcobrar from '../../screens/Ctsxcobrar';
 import HomeScreen from '../../screens/home';
@@ -28,35 +30,41 @@ import DetallesPropiedad from '../../screens/DetallesPropiedad';
 import DetallesPago from '../../screens/DetallesPago';
 import DetallesFactura from '../../screens/DetallesFactura';
 
-export default class Admin extends React.Component { 
-  render(){  
-    return(
-      <AdminSidebar/>
-    );
+export default class Admin extends React.Component {
+  render() {
+    return <AdminSidebar />;
   }
 }
 
-const customNav = (props) => (
-  <SafeAreaView style = {{flex: 1}}>
-    
-    <View style = {styles.container}>
-      <Image source = {require('../../assets/images/logo.png')} style = {{width:110, height: 110}}/>
-        <View style = {{alignItems: 'center'}}>
-          <Text style = {{color: 'white', fontSize: 20, fontWeight: 'bold'}}>Nombre de Usuario</Text>
-          <Text style = {{color: 'white', fontSize: 20, fontWeight: 'bold'}}>Admin</Text>
-          <Text style = {{color: '#2F6FD6', fontSize: 15, fontWeight: 'bold'}}>usuario@hotmail.com</Text>
-        </View>
+const customNav = props => (
+  <SafeAreaView style={{ flex: 1 }}>
+    <View style={styles.container}>
+      <Image
+        source={require('../../assets/images/logo.png')}
+        style={{ width: 110, height: 110 }}
+      />
+      <View style={{ alignItems: 'center' }}>
+        <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>
+          Nombre de Usuario
+        </Text>
+        <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>
+          Admin
+        </Text>
+        <Text style={{ color: '#2F6FD6', fontSize: 15, fontWeight: 'bold' }}>
+          usuario@hotmail.com
+        </Text>
+      </View>
     </View>
-    
+
     <ScrollView>
       <DrawerItems {...props} />
     </ScrollView>
   </SafeAreaView>
-)
+);
 
 const AdminContainerDrawer = createDrawerNavigator(
   {
-    Perfil:PerfilScreen,
+    Perfil: PerfilScreen,
     Home: HomeScreen,
     Pyp: PypScreen,
     Cuentas_por_Cobrar: Ctsxcobrar,
@@ -66,11 +74,11 @@ const AdminContainerDrawer = createDrawerNavigator(
     DPropiedad: DetallesPropiedad,
     DPropietario: DetallesPropietario,
     DPago: DetallesPago,
-    DFactura: DetallesFactura
+    DFactura: DetallesFactura,
   },
   {
-    contentComponent: customNav
-  },
+    contentComponent: customNav,
+  }
 );
 const AdminSidebar = createAppContainer(AdminContainerDrawer);
 
@@ -83,4 +91,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
