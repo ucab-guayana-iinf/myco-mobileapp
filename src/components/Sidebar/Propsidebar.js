@@ -1,63 +1,72 @@
 import * as React from 'react';
-import { 
+import {
   Text,
-  View, 
+  View,
   StyleSheet,
   Image,
   ScrollView,
-  SafeAreaView
+  SafeAreaView,
 } from 'react-native';
 import {
   createDrawerNavigator,
   createAppContainer,
-  DrawerItems
+  DrawerItems,
 } from 'react-navigation';
 import { Constants } from 'expo';
-{/* Importacion de Componentes*/}
+{
+  /* Importacion de Componentes*/
+}
 import HomeScreen from '../../screens/home';
 import PerfilScreen from '../../screens/perfil';
 import DeudasScreen from '../../screens/Deudas';
 import FacturasScreen from '../../screens/Factura';
+import DetallesFactura from '../../screens/DetallesFactura';
 
-export default class Propietario extends React.Component { 
-  render(){    
-    return(
-      <PropSidebar/>
-    );
+export default class Propietario extends React.Component {
+  render() {
+    return <PropSidebar />;
   }
 }
 
-const customNav = (props) => (
-  <SafeAreaView style = {{flex: 1}}>
-    
-    <View style = {styles.container}>
-      <Image source = {require('../../assets/images/logo.png')} style = {{width:110, height: 110}}/>
-        <View style = {{alignItems: 'center'}}>
-          <Text style = {{color: 'white', fontSize: 20, fontWeight: 'bold'}}>Nombre de Usuario</Text>
-          <Text style = {{color: 'white', fontSize: 20, fontWeight: 'bold'}}>Propietario</Text>
-          <Text style = {{color: '#2F6FD6', fontSize: 15, fontWeight: 'bold'}}>usuario@hotmail.com</Text>
-        </View>
+const customNav = props => (
+  <SafeAreaView style={{ flex: 1 }}>
+    <View style={styles.container}>
+      <Image
+        source={require('../../assets/images/logo.png')}
+        style={{ width: 110, height: 110 }}
+      />
+      <View style={{ alignItems: 'center' }}>
+        <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>
+          Nombre de Usuario
+        </Text>
+        <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>
+          Propietario
+        </Text>
+        <Text style={{ color: '#2F6FD6', fontSize: 15, fontWeight: 'bold' }}>
+          usuario@hotmail.com
+        </Text>
+      </View>
     </View>
-    
+
     <ScrollView>
       <DrawerItems {...props} />
     </ScrollView>
   </SafeAreaView>
-)
+);
 
 const PropContainerDrawer = createDrawerNavigator(
   {
     Perfil: PerfilScreen,
     Home: HomeScreen,
     Deudas: DeudasScreen,
-    Facturas: FacturasScreen,  
+    Facturas: FacturasScreen,
+    DFactura: DetallesFactura,
   },
   {
-    contentComponent: customNav
+    contentComponent: customNav,
   }
 );
 const PropSidebar = createAppContainer(PropContainerDrawer);
-
 
 const styles = StyleSheet.create({
   container: {

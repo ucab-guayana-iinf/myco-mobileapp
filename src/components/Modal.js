@@ -8,18 +8,16 @@ export default class CustomModal extends Component {
     visibleModal: null,
   };
 
-  renderModalButton = (onPress) => (
+  renderModalButton = onPress => (
     <TouchableOpacity onPress={onPress}>
-      <FontAwesome 
-        name="ellipsis-v" size={25} color="white"
-      />        
+      <FontAwesome name="ellipsis-v" size={25} color="white" />
     </TouchableOpacity>
   );
 
   renderButton = (text, onPress) => (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.button}>
-        <Text style={{color: 'white'}}>{text}</Text>
+        <Text style={{ color: 'white' }}>{text}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -33,7 +31,7 @@ export default class CustomModal extends Component {
   render() {
     return (
       <View>
-          {this.renderModalButton(() => this.setState({ visibleModal: 1 }))}
+        {this.renderModalButton(() => this.setState({ visibleModal: 1 }))}
         <View style={styles.container}>
           <Modal isVisible={this.state.visibleModal === 1}>
             {this.renderModalContent()}

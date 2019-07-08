@@ -62,7 +62,7 @@ export default class PyP extends React.Component {
 
   /* Componente que nos permitira escribir en la tarjeta*/
   renderText = (propiedad, nombre, email) => (
-    <View style={{ flexDirection: 'column', marginLeft: 10, width: 235}}>
+    <View style={{ flexDirection: 'column', marginLeft: 10, width: 235 }}>
       <Text style={styles.paragraph1}>{propiedad}</Text>
       <Text style={styles.paragraph2}>{nombre}</Text>
       <Text style={styles.paragraph3}>{email}</Text>
@@ -97,15 +97,17 @@ export default class PyP extends React.Component {
 
           {this.renderText(propiedad, nombre, email)}
 
-          <View style = {{marginLeft: 8}}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('DPropiedad')}>
+          <View style={{ marginLeft: 8 }}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('DPropiedad')}>
               <Image
                 source={require('../assets/images/botonverde.png')}
                 style={{ width: 33, height: 33 }}
               />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('DPropietario')}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('DPropietario')}>
               <Image
                 source={require('../assets/images/botonazul.png')}
                 style={{ width: 33, height: 33 }}

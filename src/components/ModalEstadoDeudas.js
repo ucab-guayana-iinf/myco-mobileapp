@@ -16,7 +16,7 @@ export default class CustomModal extends Component {
     <TouchableOpacity onPress={onPress}>
       <Image
         source={require('../assets/images/btnlogin.png')}
-        style={{ width: 60, height: 60}}
+        style={{ width: 60, height: 60 }}
       />
     </TouchableOpacity>
   );
@@ -33,15 +33,17 @@ export default class CustomModal extends Component {
   );
 
   renderEstado = (
-    <View style={{flexDirection: 'row', margin: 20}}>
-      <Text style={{ color: 'black', fontSize: 15,}}>
-          Estado Actual:   
+    <View style={{ flexDirection: 'row', margin: 20 }}>
+      <Text style={{ color: 'black', fontSize: 15 }}>Estado Actual:</Text>
+      <Ionicons
+        name="md-radio-button-on"
+        size={25}
+        color={estado}
+        style={{ marginLeft: 20 }}
+      />
+      <Text style={{ color: 'black', fontSize: 15, marginLeft: 20 }}>
+        {valor}
       </Text>
-      <Ionicons name="md-radio-button-on" size={25} color={estado} style={{marginLeft: 20}}/>
-      <Text style={{ color: 'black', fontSize: 15, marginLeft: 20}}>
-          {valor}      
-      </Text>
-      
     </View>
   );
 
@@ -50,23 +52,23 @@ export default class CustomModal extends Component {
       {this.renderEstado}
       {this.renderButton(
         'Rechazado',
-        () => this.setState({ visibleModal: null}),
+        () => this.setState({ visibleModal: null }),
         'red'
       )}
       {this.renderButton(
         'Pendiente',
-        () => this.setState({ visibleModal: null}),
+        () => this.setState({ visibleModal: null }),
         'orange'
       )}
       {this.renderButton(
         'Cancelado',
-        () => this.setState({ visibleModal: null}),
+        () => this.setState({ visibleModal: null }),
         'green'
       )}
 
       <TouchableOpacity onPress={() => this.setState({ visibleModal: null })}>
         <View style={styles.buttonClose}>
-          <Text style={{color: 'white'}}>Cerrar</Text>
+          <Text style={{ color: 'white' }}>Cerrar</Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -111,7 +113,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,
-    borderColor: 'rgba(0, 0, 0, 0.1)',
+    borderColor: 'dimgrey',
+    borderBottomWidth: 1,
   },
   modalContent: {
     backgroundColor: 'white',
@@ -119,7 +122,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: 'rgba(0, 0, 0, 0.1)',
   },
-   buttonClose: {
+  buttonClose: {
     backgroundColor: '#1bb98f',
     padding: 12,
     margin: 16,
