@@ -13,14 +13,20 @@ import {
 } from 'react-native';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import { Constants } from 'expo';
+import { connect } from 'react-redux';
 
-export default class LoginClass extends React.Component {
+import { userActions } from '../_actions';
+
+class LoginPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       showPass: true,
       press: false,
+      username: '',
+      password: '',
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   /* Esta funcion nos permitira poder observar la contraseña*/
@@ -42,7 +48,20 @@ export default class LoginClass extends React.Component {
     }
   }
 
+  handleSubmit(e) {
+        e.preventDefault();
+
+        const { username, password } = this.state;
+        const { dispatch } = this.props;
+        if (username && password) {
+            dispatch(userActions.login(username, password));
+        }
+    }
+
   render() {
+    const { loggingIn } = this.props;
+    const { username, password  } = this.state;
+
     return (
       <View style={styles.container}>
         {/* Container Logo*/}
@@ -76,9 +95,9 @@ export default class LoginClass extends React.Component {
                 fontSize: 18,
                 color: 'white',
               }}
+              onChangeText={(username) => { this.setState({ username }) }}
             />
           </View>
-
           {/* Contraseña*/}
           <View style={{ flexDirection: 'row' }}>
             <Text style={{ color: 'white', fontSize: 10, marginTop: '7%' }}>
@@ -110,6 +129,7 @@ export default class LoginClass extends React.Component {
                 color: 'white',
               }}
               secureTextEntry={this.state.showPass}
+              onChangeText={(password) => { this.setState({ password }); }}
             />
           </View>
         </View>
@@ -117,15 +137,7 @@ export default class LoginClass extends React.Component {
         {/* Boton de ingreso*/}
         <View style={{ marginTop: '5.5%', marginLeft: 280 }}>
           <TouchableOpacity
-            onPress={() => {
-              const user = 'Admin';
-
-              if (user === 'propietario') {
-                this.props.navigation.navigate('PropSid');
-              } else {
-                this.props.navigation.navigate('AdminSid');
-              }
-            }}>
+            onPress={this.handleSubmit}>
             <Image
               source={require('../assets/images/btnlogin.png')}
               style={{ width: 70, height: 70 }}
@@ -153,3 +165,13 @@ const styles = StyleSheet.create({
     marginLeft: '8.8%',
   },
 });
+
+function mapStateToProps(state) {
+    const { loggingIn } = state.authentication;
+    return {
+        loggingIn
+    };
+}
+
+const LoginClass = connect(mapStateToProps)(LoginPage);
+export default LoginClass;

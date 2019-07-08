@@ -4,7 +4,8 @@ import { createAppContainer, createStackNavigator } from 'react-navigation';
 import LoginScreen from '../screens/Login';
 import AdminSidebarScreen from './Sidebar/AdminSidebar';
 import PropSidebarScreen from './Sidebar/Propsidebar';
-import Login from '../screens/Deudas';
+// import Login from '../screens/Deudas';
+import NavigationService from '../_services/NavigationService';
 
 /* Estructuracion de nuestras pantallas*/
 const MainNavigator = createStackNavigator({
@@ -33,7 +34,9 @@ const Container = createAppContainer(MainNavigator);
 
 /* - - Esta es nuestra clase/container principal - - */
 export default class App extends React.Component {
+
   render() {
-    return <Container />;
+    return <Container ref={navigatorRef => {
+    NavigationService.setTopLevelNavigator(navigatorRef);}}/>;
   }
 }
