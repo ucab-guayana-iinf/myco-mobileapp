@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';
-import { Card } from 'react-native-elements';
+import { Card, Header } from 'react-native-elements';
 import Modal from '../components/Modal';
 import ModalEst from '../components/ModalEstadoDeudas';
 
@@ -23,59 +23,69 @@ export default class Deudas extends React.Component {
   };
 
   HeaderAdmin = (
-    <View style={{ backgroundColor: '#1bb98f' }}>
-      <View style={{ flexDirection: 'row', marginTop: 40, marginBottom: 10 }}>
-        <TouchableOpacity
-          onPress={() =>
-            this.props.navigation.dispatch(DrawerActions.openDrawer())
-          }>
-          <FontAwesome
-            name="bars"
-            size={25}
-            color="white"
-            style={{ marginLeft: 20 }}
-          />
-        </TouchableOpacity>
-        <Text
-          style={{
-            fontSize: 20,
-            color: 'white',
-            fontWeight: 'bold',
-            marginLeft: 90.6,
-          }}>
-          Deudas
-        </Text>
-        <View style={{ marginLeft: 130 }}>
-          <Modal />
-        </View>
-      </View>
+    <View>
+      <Header
+        innerContainerStyles={{ flexDirection: 'row' }}
+        backgroundColor="#1bb98f"
+        leftComponent={
+          <TouchableOpacity
+            onPress={() =>
+              this.props.navigation.dispatch(DrawerActions.openDrawer())
+            }>
+            <FontAwesome name="bars" size={25} color="white" />
+          </TouchableOpacity>
+        }
+        centerComponent={
+          <View style={{ alignItems: 'center' }}>
+            <Text
+              style={{
+                justifyContent: 'center',
+                fontSize: 20,
+                color: 'white',
+                fontWeight: 'bold',
+                alignContent: 'center',
+              }}>
+              Deudas
+            </Text>
+          </View>
+        }
+        rightComponent={
+          <View style={{ alignContent: 'center', alignItems: 'center' }}>
+            <Modal />
+          </View>
+        }
+      />
     </View>
   );
 
   Header = (
-    <View style={{ backgroundColor: '#1bb98f' }}>
-      <View style={{ flexDirection: 'row', marginTop: 40, marginBottom: 10 }}>
-        <TouchableOpacity
-          onPress={() =>
-            this.props.navigation.dispatch(DrawerActions.openDrawer())
-          }>
-          <FontAwesome
-            name="bars"
-            size={25}
-            color="white"
-            style={{ marginLeft: 20 }}
-          />
-        </TouchableOpacity>
-        <Text
-          style={{
-            fontSize: 20,
-            color: 'white',
-            fontWeight: 'bold',
-            marginLeft: 90.6,
-          }}>
-          Deudas
-        </Text>
-      </View>
+    <View>
+      <Header
+        innerContainerStyles={{ flexDirection: 'row' }}
+        backgroundColor="#1bb98f"
+        leftComponent={
+          <TouchableOpacity
+            onPress={() =>
+              this.props.navigation.dispatch(DrawerActions.openDrawer())
+            }>
+            <FontAwesome name="bars" size={25} color="white" />
+          </TouchableOpacity>
+        }
+        centerComponent={
+          <View style={{ alignItems: 'center' }}>
+            <Text
+              style={{
+                justifyContent: 'center',
+                fontSize: 20,
+                color: 'white',
+                fontWeight: 'bold',
+                alignContent: 'center',
+              }}>
+              Deudas
+            </Text>
+          </View>
+        }
+      />
     </View>
   );
 

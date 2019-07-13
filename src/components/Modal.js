@@ -9,12 +9,22 @@ export default class CustomModal extends Component {
   };
 
   renderModalButton = onPress => (
-    <TouchableOpacity onPress={onPress}>
-      <FontAwesome name="ellipsis-v" size={25} color="white" />
+    <View style={{ marginTop: 17, marginRight: 6 }}>
+      <TouchableOpacity onPress={onPress}>
+        <FontAwesome name="ellipsis-v" size={25} color="white" />
+      </TouchableOpacity>
+    </View>
+  );
+
+  renderButtonA = (text, onPress) => (
+    <TouchableOpacity onPress={() => this.props.navigation.navigate('Resid'), onPress}>
+      <View style={styles.button}>
+        <Text style={{ color: 'white' }}>{text}</Text>
+      </View>
     </TouchableOpacity>
   );
 
-  renderButton = (text, onPress) => (
+  renderButtonB = (text, onPress) => (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.button}>
         <Text style={{ color: 'white' }}>{text}</Text>
@@ -24,7 +34,8 @@ export default class CustomModal extends Component {
 
   renderModalContent = () => (
     <View style={styles.modalContent}>
-      {this.renderButton('Close', () => this.setState({ visibleModal: null }))}
+    {this.renderButtonA('Modificar Datos Residencia', () => this.setState({ visibleModal: null }))}
+      {this.renderButtonB('Close', () => this.setState({ visibleModal: null }))}
     </View>
   );
 

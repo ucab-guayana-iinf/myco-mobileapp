@@ -11,33 +11,41 @@ import {
 import { DrawerActions } from 'react-navigation';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { Constants } from 'expo';
+import { Card, Header } from 'react-native-elements';
 import Modal from '../components/Modal';
 
 export default class Formulario extends React.Component {
+  static navigationOptions = {
+    drawerLabel: 'Home',
+    drawerIcon: () => <FontAwesome name="address-card" size={20} color="#1bb98f" />,
+  };
+
   Header = (
-    <View style={{ backgroundColor: '#1bb98f' }}>
-      <View style={{ flexDirection: 'row', marginTop: 40, marginBottom: 10 }}>
-        <TouchableOpacity
-          onPress={() =>
-            this.props.navigation.dispatch(DrawerActions.openDrawer())
-          }>
-          <FontAwesome
-            name="bars"
-            size={25}
-            color="white"
-            style={{ marginLeft: 20 }}
-          />
-        </TouchableOpacity>
-        <Text
-          style={{
-            fontSize: 20,
-            color: 'white',
-            fontWeight: 'bold',
-            marginLeft: 50,
-          }}>
-          Formulario de Pagos
-        </Text>
-      </View>
+    <View>
+      <Header
+        innerContainerStyles={{ flexDirection: 'row' }}
+        backgroundColor="#1bb98f"
+        leftComponent={
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Home')}>
+            <FontAwesome name="arrow-left" size={25} color="white" />
+          </TouchableOpacity>
+        }
+        centerComponent={
+          <View style={{ alignItems: 'center' }}>
+            <Text
+              style={{
+                justifyContent: 'center',
+                fontSize: 20,
+                color: 'white',
+                fontWeight: 'bold',
+                alignContent: 'center',
+              }}>
+                Formulario de Pago
+            </Text>
+          </View>
+        }
+      />
     </View>
   );
 
@@ -117,13 +125,16 @@ export default class Formulario extends React.Component {
         {this.Header}
         <ScrollView>
           {this.renderTitulo}
-          {this.renderFormulario('Fecha', 'md-calendar')}
-          {this.renderFormulario('Método', 'ios-card')}
-          {this.renderFormulario('Número de referencia', 'md-medical')}
-          {this.renderFormulario('Banco', 'md-business')}
-          {this.renderFormulario('Concepto', 'ios-warning')}
-          {this.renderFormulario('Monto', 'logo-usd')}
+          <Card>
+            {this.renderFormulario('Fecha', 'md-calendar')}
+            {this.renderFormulario('Método', 'ios-card')}
+            {this.renderFormulario('Número de referencia', 'md-medical')}
+            {this.renderFormulario('Banco', 'md-business')}
+            {this.renderFormulario('Concepto', 'ios-warning')}
+            {this.renderFormulario('Monto', 'logo-usd')}
+          </Card>
           {this.renderButton(null)}
+
           <View style={{ marginBottom: 150 }} />
         </ScrollView>
       </View>

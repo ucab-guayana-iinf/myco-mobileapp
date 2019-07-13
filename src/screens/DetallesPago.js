@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import { Card } from 'react-native-elements';
+import { Card, Header } from 'react-native-elements';
 import Modal from '../components/Modal';
 import Estado from '../components/ModalEstado';
 
@@ -21,32 +21,41 @@ export default class DetallesPago extends React.Component {
   static navigationOptions = {
     drawerLabel: () => null,
   };
-
   Header = (
-    <View style={{ backgroundColor: '#1bb98f' }}>
-      <View style={{ flexDirection: 'row', marginTop: 40, marginBottom: 10 }}>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Pagos')}>
-          <FontAwesome
-            name="arrow-left"
-            size={25}
-            color="white"
-            style={{ marginLeft: 20 }}
-          />
-        </TouchableOpacity>
-        <Text
-          style={{
-            fontSize: 20,
-            color: 'white',
-            fontWeight: 'bold',
-            marginLeft: 60,
-          }}>
-          Detalles de Pago
-        </Text>
-        <View style={{ marginLeft: 78 }}>
-          <Modal />
-        </View>
-      </View>
+    <View>
+      <Header
+        innerContainerStyles={{ flexDirection: 'row' }}
+        backgroundColor="#1bb98f"
+        leftComponent={
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Pagos')}>
+            <FontAwesome
+              name="arrow-left"
+              size={25}
+              color="white"
+            />
+          </TouchableOpacity>
+        }
+        centerComponent={
+          <View style={{ alignItems: 'center' }}>
+            <Text
+              style={{
+                justifyContent: 'center',
+                fontSize: 20,
+                color: 'white',
+                fontWeight: 'bold',
+                alignContent: 'center',
+              }}>
+              Detalles de Pago
+            </Text>
+          </View>
+        }
+        rightComponent={
+          <View style={{ alignContent: 'center', alignItems: 'center' }}>
+            <Modal />
+          </View>
+        }
+      />
     </View>
   );
 

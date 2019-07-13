@@ -10,6 +10,7 @@ import {
 import { DrawerActions } from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';
 import Modal from '../components/Modal';
+import { Header } from 'react-native-elements';
 
 var admin = 'true';
 
@@ -19,55 +20,73 @@ export default class DetallesFactura extends React.Component {
   };
 
   HeaderAdmin = (
-    <View style={{ backgroundColor: '#1bb98f' }}>
-      <View style={{ flexDirection: 'row', marginTop: 40, marginBottom: 10 }}>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Facturas')}>
-          <FontAwesome
-            name="arrow-left"
-            size={25}
-            color="white"
-            style={{ marginLeft: 20 }}
-          />
-        </TouchableOpacity>
-        <Text
-          style={{
-            fontSize: 20,
-            color: 'white',
-            fontWeight: 'bold',
-            marginLeft: 50,
-          }}>
-          Detalles de Factura
-        </Text>
-        <View style={{ marginLeft: 66 }}>
-          <Modal />
-        </View>
-      </View>
+    <View>
+      <Header
+        innerContainerStyles={{ flexDirection: 'row' }}
+        backgroundColor="#1bb98f"
+        leftComponent={
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Facturas')}>
+            <FontAwesome
+              name="arrow-left"
+              size={25}
+              color="white"
+            />
+          </TouchableOpacity>
+        }
+        centerComponent={
+          <View style={{ alignItems: 'center' }}>
+            <Text
+              style={{
+                justifyContent: 'center',
+                fontSize: 20,
+                color: 'white',
+                fontWeight: 'bold',
+                alignContent: 'center',
+              }}>
+              Detalles de Factura
+            </Text>
+          </View>
+        }
+        rightComponent={
+          <View style={{ alignContent: 'center', alignItems: 'center' }}>
+            <Modal />
+          </View>
+        }
+      />
     </View>
   );
 
   Header = (
-    <View style={{ backgroundColor: '#1bb98f' }}>
-      <View style={{ flexDirection: 'row', marginTop: 40, marginBottom: 10 }}>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Facturas')}>
-          <FontAwesome
-            name="arrow-left"
-            size={25}
-            color="white"
-            style={{ marginLeft: 20 }}
-          />
-        </TouchableOpacity>
-        <Text
-          style={{
-            fontSize: 20,
-            color: 'white',
-            fontWeight: 'bold',
-            marginLeft: 50,
-          }}>
-          Detalles de Factura
-        </Text>
-      </View>
+    <View>
+      <Header
+        innerContainerStyles={{ flexDirection: 'row' }}
+        backgroundColor="#1bb98f"
+        leftComponent={
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Facturas')}>
+            <FontAwesome
+              name="arrow-left"
+              size={25}
+              color="white"
+            />
+          </TouchableOpacity>
+        }
+        centerComponent={
+          <View style={{ alignItems: 'center' }}>
+            <Text
+              style={{
+                justifyContent: 'center',
+                fontSize: 20,
+                color: 'white',
+                fontWeight: 'bold',
+                alignContent: 'center',
+              }}>
+              Detalles de Factura
+            </Text>
+          </View>
+        }
+      />
     </View>
   );
 

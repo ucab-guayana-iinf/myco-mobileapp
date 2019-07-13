@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import { Card } from 'react-native-elements';
+import { Card, Header } from 'react-native-elements';
 import Modal from '../components/Modal';
 
 export default class DetallesPropiedad extends React.Component {
@@ -17,32 +17,44 @@ export default class DetallesPropiedad extends React.Component {
     drawerLabel: () => null,
   };
 
-  Header = (
-    <View style={{ backgroundColor: '#1bb98f' }}>
-      <View style={{ flexDirection: 'row', marginTop: 40, marginBottom: 10 }}>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Pyp')}>
-          <FontAwesome
-            name="arrow-left"
-            size={25}
-            color="white"
-            style={{ marginLeft: 20 }}
-          />
-        </TouchableOpacity>
-        <Text
-          style={{
-            fontSize: 20,
-            color: 'white',
-            fontWeight: 'bold',
-            marginLeft: 54,
-          }}>
-          Detalles Propiedad
-        </Text>
-        <View style={{ marginLeft: 50 }}>
-          <Modal />
-        </View>
-      </View>
+   Header = (
+    <View>
+      <Header
+        innerContainerStyles={{ flexDirection: 'row' }}
+        backgroundColor="#1bb98f"
+        leftComponent={
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Pyp')}>
+            <FontAwesome
+              name="arrow-left"
+              size={25}
+              color="white"
+            />
+          </TouchableOpacity>
+        }
+        centerComponent={
+          <View style={{ alignItems: 'center' }}>
+            <Text
+              style={{
+                justifyContent: 'center',
+                fontSize: 20,
+                color: 'white',
+                fontWeight: 'bold',
+                alignContent: 'center',
+              }}>
+              Detalles de Propiedad
+            </Text>
+          </View>
+        }
+        rightComponent={
+          <View style={{ alignContent: 'center', alignItems: 'center' }}>
+            <Modal />
+          </View>
+        }
+      />
     </View>
   );
+
 
   renderCard = (text, iconname, color, valor) => (
     <View style={styles.container}>
